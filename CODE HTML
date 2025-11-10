@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container p-5 my-5 border rounded bg-light">
+  <form id="studentForm">
+    <h1 class="text-center">Bloom College</h1>
+    <h3 class="text-center">Student Registration Form</h3>
+    <br>
+
+
+    <label>Student Image: </label>
+    <div class="border border-2 border-secondary d-inline-flex justify-content-center align-items-center rounded"
+         style="width: 120px; height: 120px; overflow: hidden;">
+      <input type="file" id="studentimage" accept="image/*"
+             class="form-control form-control-sm border-0"
+             style="width: 100%; height: 100%; opacity: 0;">
+    </div>
+    <label>(less than 5MB)</label>
+    <p></p>
+
+    <label>Student Name: </label>
+    <input onblur="changecolor(this)" type="text" placeholder="Full Name" id="nama" class="form-control" onChange="toUppercase(this)">
+    <p></p>
+
+
+    <label>Father's Name: </label>
+    <input type="text" placeholder="Father's Full Name" id="father" class="form-control" onChange="toUppercase(this)">
+    <p></p>
+
+  
+    <label>Mother's Name: </label>
+    <input type="text" placeholder="Mother's Full Name" id="mother" class="form-control" onChange="toUppercase(this)">
+    <p></p>
+
+
+    <label>Gender: </label>
+    <label for="male">Male</label>
+    <input type="radio" id="male" name="gender_pick" value="Male">
+    <label for="female">Female</label>
+    <input type="radio" id="female" name="gender_pick" value="Female">
+    <p></p>
+
+ 
+    <label>Date of Birth: </label>
+    <input type="date" id="datebirth" class="form-control">
+    <p></p>
+
+  
+    <label>Email: </label>
+    <input type="text" placeholder="email@xyz.com" id="email" class="form-control" onfocus="highlight(this)">
+    <p></p>
+
+    <label>Level: </label>
+    <select id="level" class="form-select">
+      <option value="PhD">PhD</option>
+      <option value="Degree">Degree</option>
+      <option value="Diploma">Diploma</option>
+      <option value="Highschool">Highschool</option>
+    </select>
+    <p></p>
+
+
+    <label>Department: </label>
+    <select id="department" class="form-select">
+      <option value="Computer Engineering">Computer Engineering</option>
+      <option value="Accountacy">Accountacy</option>
+      <option value="Mechanical Engineering">Mechanical Engineering</option>
+      <option value="Business">Business</option>
+    </select>
+    <p></p>
+
+  
+    <label>Tel/Mobile: </label>
+    <input type="number" placeholder="01X-XXX-XXXX" id="mobilenum" class="form-control">
+    <p></p>
+
+ 
+    <h2>Address</h2>
+    <label>State:</label>
+    <input type="text" placeholder="State" id="state" class="form-control">
+    <p></p>
+
+    <label>City:</label>
+    <input type="text" placeholder="City" id="city" class="form-control">
+    <p></p>
+
+    <label>Postcode:</label>
+    <input type="number" placeholder="Postcode" id="postcode" class="form-control">
+    <p></p>
+
+    <!-- Buttons -->
+    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
+  </form>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Success</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Your details have been saved successfully!
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+  function changecolor(element) {
+    element.style.backgroundColor = "lightgrey";
+  }
+
+
+  function highlight(element) {
+    element.style.backgroundColor = "lightyellow";
+  }
+
+
+  function toUppercase(element) {
+    element.value = element.value.toUpperCase();
+  }
+
+ 
+  function showSuccessModal(e) {
+    e.preventDefault(); 
+    new bootstrap.Modal(document.getElementById("successModal")).show();
+  }
+
+
+  document.getElementById("studentForm").addEventListener("submit", showSuccessModal);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+
+
